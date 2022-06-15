@@ -1,0 +1,67 @@
+:root {
+    --fg: white;
+    --bg: #141414;
+}
+
+html, body, * {
+    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+}
+
+body {
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+#flag {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 70vh;
+    background-size: contain;
+}
+
+#choose {
+    width: 100%;
+    display: flex;
+}
+
+a button {
+    font-size: xx-large;
+    color: var(--fg);   
+    padding: 1rem;
+    border: none;
+    /* outline: 1px solid white; */
+    background-color: var(--bg);
+    transition: 0.3s;
+    width: 19vw;
+}
+
+a button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    #flag {
+        height: 50%;
+        width: 100%;
+    }
+
+    #choose {
+        display: block;
+    }
+
+    a button {
+        width: 100%;
+    }
+}

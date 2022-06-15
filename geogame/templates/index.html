@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>GeoGame</title>
+</head>
+<body>
+    <h2 id="score">Score: <strong>{{ score }}</strong></h2>
+    <h2 id="last" class="{{ color }}">Last was: <strong>{{ last }}</strong></h2>
+    <img id="flag" src="https://countryflagsapi.com/svg/{{ flag }}">
+    <br>
+
+    <div id="choose">
+        {% for country in choose %}
+            <a href="/choose/{{ country.name }}"><button>{{ country.name }}</button></a>
+        {% endfor %}
+    </div>
+</body>
+</html>
