@@ -1,6 +1,8 @@
 :root {
     --fg: white;
+    --grey: #383838;
     --bg: #141414;
+    --bg-light: #191919;
 }
 
 html, body, * {
@@ -35,6 +37,14 @@ body {
     display: flex;
 }
 
+.grey, .grey a {
+    color: var(--grey)
+}
+
+a {
+    color: var(--fg);
+}
+
 a button {
     font-size: xx-large;
     color: var(--fg);   
@@ -49,6 +59,7 @@ a button {
 a button:hover {
     cursor: pointer;
     opacity: 0.7;
+    background-color: var(--bg-light);
 }
 
 @media (max-width: 600px) {

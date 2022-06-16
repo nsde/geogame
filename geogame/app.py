@@ -9,11 +9,13 @@ def randomized() -> dict:
     return random.choice(countries.data)
 
 said = None
+score = None
 correct = None
 
 @app.route('/')
 def index():
     global said
+    global score
     global correct
     
     correct = randomized()
@@ -27,6 +29,7 @@ def index():
     if not score:
         score = '0'
 
+    score = str(int(score)+2) if was_correct else str(int(score)-1)
 
     resp = flask.make_response(flask.render_template('index.html',
         flag=correct['code'],
@@ -35,7 +38,7 @@ def index():
         score=score,
         color='green' if was_correct else 'red'
     ))
-    resp.set_cookie('score', str(int(score)+2) if was_correct else str(int(score)-1))
+    resp.set_cookie('score', score)
     
     return resp
 
@@ -50,6 +53,19 @@ def country(name):
     if correct:
         resp.set_cookie('said', said)
         resp.set_cookie('correct', correct['name'])
+    
+    return resp
+
+@app.route('/score/reset')
+def reset_score():
+    global score
+    global correct
+    
+    score = 1
+    resp = flask.make_response(flask.redirect('/'))
+    
+    if correct:
+        resp.set_cookie('score', str(score))
     
     return resp
 
